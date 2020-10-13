@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Test {
     public static void main(String[] args) {
+        HashMap<String, String> stringStringHashMap = new HashMap<>();
         MyHashMap<String, String> myHashMap = new MyHashMap<>();
         myHashMap.put("123", "456");
         myHashMap.put("1234", "4567");

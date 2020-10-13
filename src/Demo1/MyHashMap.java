@@ -169,7 +169,9 @@ public class MyHashMap<K, V> implements Map<K, V> {
     // 将map中的数据放进hashmap中
     if (m != null && m.size() > 0) {
       for (Map.Entry<? extends K, ? extends V> e : m.entrySet()) {
-        if (!containsKey(e.getKey())) this.put(e.getKey(), e.getValue());
+        if (!containsKey(e.getKey())) {
+          this.put(e.getKey(), e.getValue());
+        }
       }
     }
   }
@@ -235,8 +237,9 @@ public class MyHashMap<K, V> implements Map<K, V> {
     }
 
     public final boolean hasNext() {
-      if(indexIterator == MyHashMap.this.table.length)
+      if(indexIterator == MyHashMap.this.table.length) {
         temp = null;
+      }
       return temp != null;
     }
 
