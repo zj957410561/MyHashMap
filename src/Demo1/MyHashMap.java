@@ -211,7 +211,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
   class keyIterator extends MyHashIterator implements Iterator<K> {
     @Override
     public final K next() {
+
         return nextNode().key;
+
+
     }
   }
 
@@ -232,6 +235,8 @@ public class MyHashMap<K, V> implements Map<K, V> {
     }
 
     public final boolean hasNext() {
+      if(indexIterator == MyHashMap.this.table.length)
+        temp = null;
       return temp != null;
     }
 
@@ -244,10 +249,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
         temp = temp.next;
       } else {
         for (; indexIterator <= MyHashMap.this.table.length;++indexIterator ) {
-          if (indexIterator > MyHashMap.this.table.length - 1) {
+          /*if (indexIterator > MyHashMap.this.table.length - 1) {
             temp = null;
             break;
-          }
+          }*/
           if (MyHashMap.this.table[indexIterator] != null) {
             temp = MyHashMap.this.table[indexIterator++];
             break;
